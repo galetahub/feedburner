@@ -1,0 +1,64 @@
+= FeedBurner
+
+The FeedBurner Awareness API (AwAPI) allows publishers of FeedBurner feeds to reuse the detailed traffic statistics we capture for any of their feeds. 
+Third-party applications and web services that consume feeds can leverage this data to provide useful feed awareness statistics to potential subscribers. 
+FeedBurner captures traffic data at an overall level for every feed. Feeds that use our free FeedBurner Stats PRO item view tracking have access to much more detailed data at the individual item level. 
+This data includes "resyndication" information, which is very useful for determining where and how a feed is being consumed.
+
+http://code.google.com/apis/feedburner/awareness_api.html
+
+== Install
+
+  rails plugin install git://github.com/galetahub/feedburner.git
+
+or
+
+  gem 'feedburner', :git => 'git://github.com/galetahub/feedburner.git'
+
+== Configure
+
+=== API keys
+
+Past configuration code into config/initializers folder in your project.
+
+The URI of the feed (same as http://feedproxy.google.com/<feeduri>) 
+Must be used if id is not specified
+
+  FeedBurner.feed_uri = "blogspot/tuAm"
+
+or 
+
+The FeedBurner id of the feed (visible when editing a feed in your account, e.g., http://feedburner.google.com/fb/a/optimize?id=<id>). 
+May be used instead if uri is not specified.
+
+  FeedBurner.feed_id = "demo"
+
+=== Logger
+
+Use rails default logger:
+
+  FeedBurner.logger = Rails.logger
+
+or
+
+  require 'logger'
+  
+  logfile = File.open(Rails.root.join('log', 'feedburner.log'), 'w')
+  logfile.sync = true
+
+  FeedBurner.logger = Logger.new(logfile)  
+
+=== XML parser
+
+FeedBurner use ActiveSupport::XmlMini to parse response. So we recomended use nokogiri:
+
+  ActiveSupport::XmlMini.backend = 'Nokogiri'
+
+== Example
+
+  feed = FeedBurner.get_feed_data
+  feed.uid # return feed id
+  feed.entries # return feed entries
+
+
+Copyright (c) 2010 Brainberry, released under the MIT license
