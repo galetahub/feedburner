@@ -3,6 +3,8 @@ module FeedBurner
   autoload :Version, 'feedburner/version'
   autoload :Api,     'feedburner/api'
   
+  FEED_URL = "http://feeds.feedburner.com"
+  
   class ServerError < RuntimeError; end
   class FeedNotFound < ServerError; end
   class FeedNotPermit < ServerError; end
@@ -56,6 +58,10 @@ module FeedBurner
   #  - dates 	Dates are used to specify the period for which data is need#
   def self.get_resyndication_data(options = {})
     Api.call('GetResyndicationData', default_options.merge(options))
+  end
+  
+  def self.feed_url
+    File.join(FEED_URL, @@feed_uri)
   end
   
   protected
