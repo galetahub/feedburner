@@ -60,5 +60,8 @@ FeedBurner use ActiveSupport::XmlMini to parse response. So we recomended use no
   feed.uid # return feed id
   feed.entries # return feed entries
 
+== Similar gems
+
+https://github.com/nedski/ruby-awareness-api
 
 Copyright (c) 2010 Brainberry, released under the MIT license
