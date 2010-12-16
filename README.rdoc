@@ -48,6 +48,12 @@ or
 
   FeedBurner.logger = Logger.new(logfile)  
 
+=== Debug
+
+Puts response body into log file
+
+  FeedBurner.debug = Rails.env.development?
+
 === XML parser
 
 FeedBurner use ActiveSupport::XmlMini to parse response. So we recomended use nokogiri:

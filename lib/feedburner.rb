@@ -25,6 +25,10 @@ module FeedBurner
   mattr_accessor :logger
   @@logger = nil
   
+  # Debug
+  mattr_accessor :debug
+  @@debug = false
+  
   # Current Basic Feed Awareness Data
   #
   # Arguments:

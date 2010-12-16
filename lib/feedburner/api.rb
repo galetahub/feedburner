@@ -17,8 +17,14 @@ module FeedBurner
       
       def call(method, params, cookies = {})
         options = { :timestamp => Time.now.to_i }.merge(params)
-                
-        response = request(File.join(uri.path, method), options)
+        url = File.join(uri.path, method)
+        response = request(url, options)
+        
+        if FeedBurner.debug
+          FeedBurner.logger.info(url)
+          FeedBurner.logger.info(response.body)
+        end
+        
         parse_response(response)
       end
       
