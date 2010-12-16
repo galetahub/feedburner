@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{feedburner}
-  s.version = "0.0.2"
+  s.version = "0.0.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Igor Galeta"]
-  s.date = %q{2010-12-14}
+  s.date = %q{2010-12-16}
   s.description = %q{The FeedBurner Awareness API (AwAPI) allows publishers of FeedBurner feeds to reuse the detailed traffic statistics we capture for any of their feeds. 
       Third-party applications and web services that consume feeds can leverage this data to provide useful feed awareness statistics to potential subscribers. 
       FeedBurner captures traffic data at an overall level for every feed. Feeds that use our free FeedBurner Stats PRO item view tracking have access to much more detailed data at the individual item level. 
